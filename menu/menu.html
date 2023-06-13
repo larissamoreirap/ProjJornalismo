@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slidebar With Dropdown</title>
+        <!--CSS file-->
+    <link rel="stylesheet" href="stylemenu.css">
+    <!--Ícon style-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+        <!--menu botton-->
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="side-bar">
+     <!--header section-->
+     <header>
+        <!--close button-->
+        <div class="close-btn">
+            <i class="fass fa-times">
+
+            </i>
+        </div>
+        <h1>Home</h1>
+     </header>
+     <!--Menu Items-->
+     <div class="menu">
+        <div class="item"> <a href=""> <i>Notícias</i>
+        <!--dropdown 01-->
+        <i class="fas fa=angle-right dropdown"></i>
+    </a>
+    <div class="sub-menu">
+        <a href="" class="sub-item">Inter</a>
+        <a href="" class="sub-item">Grêmio</a>
+    </div>
+    </div>
+        <!--dropdown 02-->
+        <div class="item"> <a href=""> <i>História</i>
+            <i class="fas fa=angle-right dropdown"></i>
+        </a>
+        <div class="sub-menu">
+            <a href="" class="sub-item">Inter</a>
+            <a href="" class="sub-item">Grêmio</a>
+        </div>
+    </div>
+        <!--dropdown 03-->
+        <div class="item"> <a href=""> <i>Títulos</i>
+            <i class="fas fa=angle-right dropdown"></i>
+        </a>
+        <div class="sub-menu">
+            <a href="" class="sub-item">Inter</a>
+            <a href="" class="sub-item">Grêmio</a>
+        </div>
+    </div>
+        <div class="item"> <a href=""> <i>Sobre mim</i></a></div>
+
+     </div>
+
+    </div>
+    <!--JQuery CDN link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          //jquery for expand and collapse the sidebar
+          $('.menu-btn').click(function(){
+            $('.side-bar').addClass('active');
+            $('.menu-btn').css("visibility", "hidden")
+          });
+          //for close button
+          $('.close-btn').click(function(){
+            $('.side-bar').removeClass('.active');
+            $('.menu-btn').css("visibility", "visible")
+          })
+        })
+        //jquery for toggle sub menus
+        $('.sub-btn').click(function(){
+            $('this').next('.sub-menu').slideToggle();
+            $('this').find('.dropdown').toggleClass('rotate')
+        })
+    </script>
+
+</body>
+</html>
